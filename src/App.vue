@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div>Todo list</div>
+    <ListComponents :itemList="items" @itemAdded="handleItemAdded" @itemDeleted="handleItemDeleted"></ListComponents>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ListComponents from './components/ListTodo.vue'
 export default {
   name: 'App',
+  data() {
+    return {
+      items: ['Berlari', 'Makan', 'Mandi', 'Tidur'],
+    }
+  },
+  methods: {
+    handleItemAdded(data) {
+      this.items.push(data);
+    },
+    handleItemDeleted(index) {
+      this.items.splice(index, 1);
+    }
+  },
   components: {
-    HelloWorld
+    ListComponents
   }
 }
 </script>
