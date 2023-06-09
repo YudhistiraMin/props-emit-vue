@@ -1,4 +1,4 @@
-# props-vue
+# props-emit-vue
 
 ## Project setup
 ```
